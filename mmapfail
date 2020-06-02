@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for f in $(find . -name \*.c -o -name \*.cpp); do
+	out="$(gcc -w -fpreprocessed -dD -E "$f" 2>/dev/null| grep -e '^mmap *(\|[) =]mmap *(' -A10)"
+	[ $? -eq 0 ] || continue
+	echo "$out"|grep -q 'MAP_FAILED\|-1'
+	[ $? -eq 0 ] || echo "$f"
+done
