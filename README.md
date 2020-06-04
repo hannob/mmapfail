@@ -1,6 +1,12 @@
 # mmapfail
 Bash script to detect bad checks of mmap() return value
 
+# what?
+
+The mmap() POSIX function returns MAP_FAILED or -1 when an error occurs.
+A common mistake is to check the return value for 0 instead. This script
+tries to heuristically find such bugs in an automated way.
+
 # findings
 
 * efivar: https://github.com/rhboot/efivar/pull/152
@@ -14,3 +20,5 @@ Bash script to detect bad checks of mmap() return value
 * QEMU: https://bugs.launchpad.net/qemu/+bug/1879998
 * GNOME/Tracker: https://gitlab.gnome.org/GNOME/tracker-miners/-/merge_requests/201
 
+Article (in German):
+* [Golem.de: mmap - Codeanalyse mit sechs Zeilen Bash](https://www.golem.de/news/mmap-codeanalyse-mit-sechs-zeilen-bash-2006-148878.html)
