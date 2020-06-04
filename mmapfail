@@ -6,4 +6,4 @@ do
 	[ $? -eq 0 ] || continue
 	echo "$out"|grep -q 'MAP_FAILED\|-1'
 	[ $? -eq 0 ] || echo "$f"
-done < <(find . -name \*.c -o -name \*.cpp -o -name \*.cxx)
+done < <(find . -name \*.c -o -name \*.cpp -o -name \*.cxx -o -name \*.cc)
