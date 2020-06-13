@@ -20,6 +20,9 @@ tries to heuristically find such bugs in an automated way.
 * QEMU: https://bugs.launchpad.net/qemu/+bug/1879998
 * GNOME/Tracker: https://gitlab.gnome.org/GNOME/tracker-miners/-/merge_requests/201
 
+Article (in German):
+* [Golem.de: mmap - Codeanalyse mit sechs Zeilen Bash](https://www.golem.de/news/mmap-codeanalyse-mit-sechs-zeilen-bash-2006-148878.html)
+
 # Cppcheck
 
 Cppcheck is capable of detecting bad checks of mmap() return values as well, 
@@ -42,11 +45,9 @@ Checking test/good.c ...
 : (information) Cppcheck cannot find all the include files (use --check-config for details)
 ```
 
-# Findings
-- Skiboot: https://github.com/open-power/skiboot/pull/255
+- Findings:
+  Skiboot: https://github.com/open-power/skiboot/pull/255
 
  
 An articles about writing rules is available: [1](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download), [2](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download)
 
-Article (in German):
-* [Golem.de: mmap - Codeanalyse mit sechs Zeilen Bash](https://www.golem.de/news/mmap-codeanalyse-mit-sechs-zeilen-bash-2006-148878.html)
