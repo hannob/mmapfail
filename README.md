@@ -32,19 +32,21 @@ Then Cppcheck can be called with a rule-file to detected bad checks of mmap:
 ```
 $ cppcheck --enable=all --rule-file=cppcheck/mmap.xml --template=cppcheck1 test/
 Checking test/bad 2.c ...
-[test/bad 2.c:14]: (warning) Mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
+[test/bad 2.c:14]: (warning) mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
 1/3 files checked 33% done
 Checking test/bad.c ...
-[test/bad.c:14]: (warning) Mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
+[test/bad.c:14]: (warning) mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
 2/3 files checked 66% done
 Checking test/good.c ...
 3/3 files checked 100% done
 : (information) Cppcheck cannot find all the include files (use --check-config for details)
 ```
-	- Findings
-	   * Skiboot: https://github.com/open-power/skiboot/pull/255
-	   
-An article about writing rules is available [here](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download) and [here](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download).
+
+# Findings
+- Skiboot: https://github.com/open-power/skiboot/pull/255
+
+ 
+An articles about writing rules is available: [1](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download), [2](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download)
 
 Article (in German):
 * [Golem.de: mmap - Codeanalyse mit sechs Zeilen Bash](https://www.golem.de/news/mmap-codeanalyse-mit-sechs-zeilen-bash-2006-148878.html)
