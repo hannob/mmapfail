@@ -31,7 +31,7 @@ This option enables an optional "rules"-feature for command line version of Cppc
 Installation instructions for this feature are available 
 [here](https://github.com/danmar/cppcheck/blob/master/build-pcre.txt).
 
-Then Cppcheck can be called with a rule-file to detected bad checks of mmap:
+Then Cppcheck can be called with a [rule-file](cppcheck/mmap.xml) to detected bad checks of mmap:
 ```
 $ cppcheck --enable=all --rule-file=cppcheck/mmap.xml --template=cppcheck1 test/
 Checking test/bad 2.c ...
