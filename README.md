@@ -20,5 +20,31 @@ tries to heuristically find such bugs in an automated way.
 * QEMU: https://bugs.launchpad.net/qemu/+bug/1879998
 * GNOME/Tracker: https://gitlab.gnome.org/GNOME/tracker-miners/-/merge_requests/201
 
+# Cppcheck
+
+Cppcheck is capable of detecting bad checks of mmap() return values as well, 
+but it must be prepared for it first by compiling from source code with HAVE_RULES=yes. 
+This option enables an optional "rules"-feature for command line version of Cppcheck. 
+Installation instructions for this feature are available 
+[here](https://github.com/danmar/cppcheck/blob/master/build-pcre.txt).
+
+Then Cppcheck can be called with a rule-file to detected bad checks of mmap:
+```
+$ cppcheck --enable=all --rule-file=cppcheck/mmap.xml --template=cppcheck1 test/
+Checking test/bad 2.c ...
+[test/bad 2.c:14]: (warning) Mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
+1/3 files checked 33% done
+Checking test/bad.c ...
+[test/bad.c:14]: (warning) Mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.
+2/3 files checked 66% done
+Checking test/good.c ...
+3/3 files checked 100% done
+: (information) Cppcheck cannot find all the include files (use --check-config for details)
+```
+	- Findings
+	   * Skiboot: https://github.com/open-power/skiboot/pull/255
+	   
+An article about writing rules is available [here](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download) and [here](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download).
+
 Article (in German):
 * [Golem.de: mmap - Codeanalyse mit sechs Zeilen Bash](https://www.golem.de/news/mmap-codeanalyse-mit-sechs-zeilen-bash-2006-148878.html)
