@@ -25,10 +25,10 @@ Article (in German):
 
 # Cppcheck
 
-Cppcheck is capable of detecting bad checks of mmap() return values as well, 
-but it must be prepared for it first by compiling from source code with HAVE_RULES=yes. 
+Cppcheck is capable of detecting bad checks of mmap() return values as well. 
+This does not work by default, instead it must be prepared by building it from source having 'HAVE_RULES=yes'-option activated. 
 This option enables an optional "rules"-feature for command line version of Cppcheck. 
-Installation instructions for this feature are available 
+Detailed installation instructions are available 
 [here](https://github.com/danmar/cppcheck/blob/master/build-pcre.txt).
 
 Then Cppcheck can be called with a [rule-file](cppcheck/mmap.xml) to detected bad checks of mmap:
