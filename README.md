@@ -25,13 +25,14 @@ Article (in German):
 
 # Cppcheck
 
-Cppcheck is capable of detecting bad checks of mmap() return values as well. 
-This does not work by default, instead it must be prepared by building it from source having 'HAVE_RULES=yes'-option activated. 
-This option enables an optional "rules"-feature for command line version of Cppcheck. 
-Detailed installation instructions are available 
+Cppcheck is capable of detecting bad checks of mmap-return values as well. Before the checking
+can begin, the tool must be prepared by building from source having 'HAVE_RULES=yes'-option activated.
+Once enabled, Cppcheck is equipped with a "rules"-feature, where 
+the user can provide custom PCRE-regex-expressions to match bug-prone patterns. 
+Detailed installation instructions available for common platforms are available 
 [here](https://github.com/danmar/cppcheck/blob/master/build-pcre.txt).
 
-Then Cppcheck can be called with a [rule-file](cppcheck/mmap.xml) to detected bad checks of mmap:
+After successful building with "rules"-feature enabled, Cppcheck can be executed with a [rule-file](cppcheck/mmap.xml) to detected bad checks of mmap:
 ```
 $ cppcheck --enable=all --rule-file=cppcheck/mmap.xml --template=cppcheck1 test/
 Checking test/bad 2.c ...
@@ -48,6 +49,6 @@ Checking test/good.c ...
 - Findings:
   Skiboot: https://github.com/open-power/skiboot/pull/255
 
- 
-An articles about writing rules is available: [1](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download), [2](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download)
+- Further reading: 
+  Tutorials about writing Cppcheck-rules: [1](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-1.pdf/download), [2](https://sourceforge.net/projects/cppcheck/files/Articles/writing-rules-2.pdf/download)
 
