@@ -29,7 +29,7 @@ Cppcheck is capable of detecting bad checks of mmap-return values as well. Befor
 can begin, the tool must be prepared by building from source having 'HAVE_RULES=yes'-option activated.
 Once enabled, Cppcheck is equipped with a "rules"-feature, where 
 the user can provide custom PCRE-regex-expressions to match bug-prone patterns. 
-Detailed installation instructions available for common platforms are available 
+Detailed installation instructions for common platforms are available 
 [here](https://github.com/danmar/cppcheck/blob/master/build-pcre.txt).
 
 After successful building with "rules"-feature enabled, Cppcheck can be executed with a [rule-file](cppcheck/mmap.xml) to detected bad checks of mmap:
