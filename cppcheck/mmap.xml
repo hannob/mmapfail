@@ -1,0 +1,18 @@
+<rule version="1"> 
+	<tokenlist>normal</tokenlist>
+	<pattern><![CDATA[(\b\w+(?: \. \w+)?\b) = (?:mmap[2]?|mremap) \([^)]+\) ; .{0,42}(?:if) \( (?:(\1) == 0|0 == (\1)|! (\1))]]></pattern> 
+	<message>
+        <id>invalidMmapRetValCheck1</id>
+        <severity>warning</severity>
+		<summary>mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.</summary>
+	</message>
+</rule>
+<rule version="1"> 
+	<tokenlist>normal</tokenlist>
+	<pattern><![CDATA[\( (\b\w+(?: \. \w+)?\b) = (?:mmap[2]?|mremap) \([^)]+\) \) (?:==|<=|>=|!=|<|>) 0]]></pattern> 
+	<message>
+        <id>invalidMmapRetValCheck2</id>
+        <severity>warning</severity>
+		<summary>mmap returns 'MAP_FAILED (=-1)' in case of an error. Checking against '0' is wrong.</summary>
+	</message>
+</rule>
